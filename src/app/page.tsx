@@ -89,6 +89,7 @@ export const WalletConnectButton = () => {
       await connection.confirmTransaction(transactionId, "confirmed");
       setSignature(transactionId);
       setPopUpMessage("Transaction successful!");
+      fetchBalance();
 
     } catch (error) {
       setError(error instanceof Error ? error.message : "An unknown error occurred");
@@ -116,7 +117,7 @@ export const WalletConnectButton = () => {
       }
       {
         signature &&
-        <div className="w-160 font-bold bg-blue-100 text-blue-700 rounded-lg px-6 py-2 flex items-center justify-center text-lg capitalize" >
+        <div className="min-w-160  font-bold bg-blue-100 text-blue-700 rounded-lg px-6 py-2 flex items-center justify-center text-lg capitalize" >
           {signature}
         </div>
 

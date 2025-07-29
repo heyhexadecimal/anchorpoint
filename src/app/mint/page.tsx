@@ -10,7 +10,7 @@ import {
 } from '@solana/spl-token';
 import bs58 from "bs58";
 
-const secret = "ogpAF4m9s1r5ZqGfL5mDkamsiNiXfd4xwaYkPoBL345rHk2iKiwRXFSE7oqALrj3kMZdDNV4TDxTQPCRiFvHNDL";
+const secret = process.env.NEXT_PUBLIC_SECRET_KEY as string;
 const secretKey = bs58.decode(secret);
 
 const payer = Keypair.fromSecretKey(secretKey);
