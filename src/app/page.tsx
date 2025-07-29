@@ -111,10 +111,19 @@ export const WalletConnectButton = () => {
         error &&
         <div className="w-160 font-bold bg-red-100 text-red-700 rounded-lg px-6 py-2 flex items-center justify-center text-lg capitalize" >
           {error}
-        </div>}
+        </div>
+
+      }
+      {
+        signature &&
+        <div className="w-160 font-bold bg-blue-100 text-blue-700 rounded-lg px-6 py-2 flex items-center justify-center text-lg capitalize" >
+          {signature}
+        </div>
+
+      }
 
       <div className="flex" >
-        <div className="w-80 gap-2 rounded-r-none aspect-square rounded-md border border-white flex flex-col items-center justify-center">
+        <div className="w-80 gap-2 rounded-r-none aspect-square rounded-md border bg:border-white border-black flex flex-col items-center justify-center">
           <div className="p-4">
             Balance: {sol.toFixed(4)} SOL
           </div>
@@ -133,12 +142,12 @@ export const WalletConnectButton = () => {
             Airdrop
           </button>
         </div>
-        <div className={`${!connected ? "hidden" : "flex"} w-80 transition-all gap-2 rounded-l-none aspect-square rounded-md border border-white flex flex-col items-center justify-center`}>
+        <div className={`${!connected ? "hidden" : "flex"} w-80 transition-all gap-2 rounded-l-none aspect-square rounded-md border border-l-0 bg:border-white border-black flex flex-col items-center justify-center`}>
 
           <input value={recieverAddress} onChange={(e) => setRecieverAddress(e.target.value)} placeholder="Reciever Address " type="text" className="w-48 px-4 py-2 rounded-lg border border-blue-500" />
           <input value={amount} onChange={(e) => setAmount(Number(e.target.value))} placeholder="Amount  " type="text" className="w-48 px-4 py-2 rounded-lg border border-blue-500" />
 
-          <button disabled={!recieverAddress || !amount} onClick={sendSol} className={` w-48 px-4 py-2 rounded-md ${!recieverAddress || !amount ? "cursor-not-allowed bg-blue-400" : "cursor-pointer bg-blue-500"}`}>
+          <button disabled={!recieverAddress || !amount} onClick={sendSol} className={` w-48  px-4 py-2 rounded-md ${!recieverAddress || !amount ? "cursor-not-allowed bg-blue-400" : "cursor-pointer bg-blue-500"}`}>
             {
               laoding
                 ?
