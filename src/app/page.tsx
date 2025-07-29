@@ -154,16 +154,10 @@ export const WalletConnectButton = () => {
   )
 }
 
-
-
 export default function Home() {
   const endPoint = useMemo(() => clusterApiUrl('devnet'), [])
   const wallets = useMemo(() => [new PhantomWalletAdapter()], [])
   return (
-    <ConnectionProvider endpoint={endPoint}>
-      <WalletProvider wallets={wallets}>
-        <WalletConnectButton />
-      </WalletProvider>
-    </ConnectionProvider>
+    <WalletConnectButton />
   );
 }
